@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let length;
+        let array1 = showArray(10)
+        let array2 = showArray(5)
+
+        document.write(`массив 1: ${array1}<br/>`);
+        document.write(`массив 2: ${array2}<br/>`);
+        document.write(`большой архив: ${getBigArray(array1, array2)}<br/>`)
+        document.write(`массив без повторений: ${getNoRepeat(array1, array2)}<br/>`)
+        document.write(`уникальные элементы 1-го массива: ${getUniqueElements(array1, array2)}`)
+
+        function showArray(length) {
+            let array = []
+
+            for (let i = 0; i < length; i++) {
+                let number = Math.floor(Math.random() * 100);
+                array.push(number);
+            }
+            return array;
+        }
+
+        function getBigArray(array1, array2) {
+            let newArray = [...new Set([...array1, ...array2])];
+            return newArray;
+        }
+
+        function getNoRepeat(array1, array2) {
+            return array1.filter(element => array2.includes(element));
+        }
+
+        function getUniqueElements(array1, array2) {
+            return array1.filter(element => !array2.includes(element));
+        }
+
+    </script>
+</body>
+
+</html>
