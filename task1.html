@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let array = [];
+        let length = 10;
+        let number;
+        let evenNumbers = [];
+        let sum = 0;
+        let max = 0;
+
+        document.write(`массив: ${showArray()}<br/>`);
+        document.write(`четные: ${getEvenNumbers()}<br/>`);
+        document.write(`сумма: ${getSum()}<br/>`);
+        document.write(`максимальный: ${getMax()}<br>`)
+
+        function showArray() {
+            for (let i = 0; i < length; i++) {
+                array.push(Math.floor(Math.random() * 100));
+            }
+            return array;
+        }
+
+        function getEvenNumbers() {
+            evenNumbers = array.filter(function (number) {
+                return number % 2 === 0;
+            });
+            return evenNumbers;
+        }
+
+        function getSum() {
+            sum = array.reduce(function (accumulator, currentValue) {
+                return accumulator + currentValue;
+            }, 0);
+            return sum;
+        }
+
+        function getMax() {
+            return array.reduce((max, current) => (current > max ? current : max), array[0]);
+        }
+
+        function addElement(index, element) {
+            if (index >= 0 && index <= array.length) {
+                return array.splice(index, 0, element);
+            } else {
+                return document.write("элемент не найден");
+            }
+        }
+
+        function removeElement(index) {
+            if (index >= 0 && index <= array.length) {
+                return array.splice(index, 1);
+            } else {
+                return document.write("элемент не найден");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
