@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fruits = ["киви", "ананас", "яблоко", "абрикос", "банан", "персик", "апельсин", "дыня", "мандарин", "груша"];
+        let searchFruit = prompt("введите фрукт");
+
+        document.write(sortArray(fruits));
+        document.write(showFruitList(fruits));
+        document.write(`индекс: ${getFruitIndex(fruits, searchFruit)}`);
+
+        function sortArray(array) {
+            return array.sort();
+        }
+
+        function showFruitList(array) {
+            let list = "<ul>";
+            array.forEach(fruit => {
+                list += `<li>${fruit}</li>`;
+            });
+            list += "</ul>";
+            return list;
+        }
+
+        function getFruitIndex(array, fruitName) {
+            let index = array.findIndex(fruit => fruit.toLowerCase() === fruitName.toLowerCase());
+            return index;
+        }
+    </script>
+</body>
+
+</html>
